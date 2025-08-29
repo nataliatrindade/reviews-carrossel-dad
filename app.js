@@ -40,3 +40,63 @@ const info = document.getElementById('info')
 const prevBtn = document.querySelector('.prevBtn')
 const nextBtn = document.querySelector('.nextBtn')
 const randomBtn = document.querySelector('.randomBtn')
+
+// selecionar inputs
+const authorInput = document.getElementById('author-input')
+const jobInput = document.getElementById('job-input')
+const infoInput = document.getElementById('info-input')
+const personImgInput = document.getElementById('person-img-input')
+const addBtn = document.getElementById('add-btn')
+
+// item inicial
+let currentItem = 0
+
+// carregar item inicial
+window.addEventListener('DOMContentLoaded', function() {
+  showPerson()
+})
+
+// mostrar pessoa 
+function showPerson() {
+  const item = reviews[currentItem]
+  img.src = item.img
+  author.textContent = item.name
+  job.textContent = item.job
+  info.textContent = item.text
+}
+
+nextBtn.addEventListener('click', function() {
+  currentItem++
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0
+  }
+  showPerson()
+})
+
+prevBtn.addEventListener('click', function() {
+  currentItem--
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1
+  }
+  showPerson()
+})
+
+randomBtn.addEventListener('click', function() {
+  currentItem = Math.floor(Math.random() * reviews.length)
+  console.log(currentItem)
+  showPerson()
+})
+
+function addPerson() {
+  reviews.push({
+    img: personImgInput.value,
+    name: authorInput.value,
+    job: jobInput.value,
+    text: infoInput.value
+  })
+}
+
+addBtn.addEventListener('click', function() {
+  addPerson()
+  console.log(reviews[reviews.length - 1])
+})
