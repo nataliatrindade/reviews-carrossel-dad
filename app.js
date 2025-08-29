@@ -43,6 +43,7 @@ const info = document.getElementById('info')
 const prevBtn = document.querySelector('.prevBtn')
 const nextBtn = document.querySelector('.nextBtn')
 const randomBtn = document.querySelector('.randomBtn')
+const removeBtn = document.querySelector('.remover')
 
 // selecionar inputs
 const authorInput = document.getElementById('author-input')
@@ -107,6 +108,7 @@ randomBtn.addEventListener('click', function() {
 
 function addPerson() {
   reviews.push({
+    id: reviews.length,
     img: personImgInput.value,
     name: authorInput.value,
     job: jobInput.value,
@@ -119,4 +121,14 @@ addBtn.addEventListener('click', function() {
   addPerson()
   console.log(reviews[reviews.length - 1])
   alert('Review adicionada com sucesso!')
+})
+
+removeBtn.addEventListener('click', function() {
+  reviews.splice(currentItem, 1)
+  saveToLocalStorage()
+  loadFromLocalStorage()
+  currentItem = 0
+  showPerson()
+
+  alert('Review removida com sucesso!')
 })

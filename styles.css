@@ -313,3 +313,13 @@ main {
 #new-person-form input::placeholder {
   color: var(--clr-grey-5);
 }
+
+.remover {
+  color: var(--clr-white);
+  background-color: var(--clr-red-dark);
+}
+
+.remover:hover {
+  color: var(--clr-white);
+  background-color: var(--clr-red-light);
+}
