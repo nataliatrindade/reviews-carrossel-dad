@@ -3,49 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starter</title>
+    <title>Review Project</title>
     <!-- font-awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     />
-
     <!-- styles -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>review project</h1>
-    <section class="container">
-      <div class="img-container">
-        <img id="person-img" src="" alt="foto da pessoa">
-      </div>
-      <h4 id="author"></h4>
-      <p id="job"></p>
-      <p id="info"></p>
-      <div class="button-container">
-        <button class="prevBtn">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="nextBtn">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-        <button class="randomBtn">Aleatório</button>
-        <button class="randomBtn remover">Remover</button>
-      </div>
-    </section>
+    <div class="app-wrapper">
+      <h1>review project</h1>
 
-    <form id="new-person-form">
-      <h3>Adicione uma avaliação ao carrossel</h3>
-      <div class="double-input">
-        <input id="author-input" type="text" placeholder="Nome do autor" required> <br>
-        <input id="job-input" type="text" placeholder="Profissão" required> <br>
-      </div>
-      <div class="double-input"><input id="info-input" type="text" placeholder="Informações" required> <br>
-      <input id="person-img-input" type="text" placeholder="Foto (URL)" required> <br></div>
-      <button id="add-btn" type="button" class="randomBtn">Salvar</button>
-    </form>
-  </main>
-    <!-- javascript -->
+      <section class="container">
+        <div class="review">
+          <div class="img-container">
+            <img id="person-img" src="" alt="foto da pessoa">
+          </div>
+          <h4 id="author"></h4>
+          <p id="job"></p>
+          <p id="info"></p>
+          <div class="button-container">
+            <button class="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <button class="randomBtn">Aleatório</button>
+            <button class="randomBtn remover">Remover</button>
+          </div>
+        </div>
+      </section>
+
+      <form id="new-person-form">
+        <h3>Adicione uma avaliação ao carrossel</h3>
+        <div class="double-input">
+          <input id="author-input" type="text" placeholder="Nome do autor" required>
+          <input id="job-input" type="text" placeholder="Profissão" required>
+        </div>
+        <div class="double-input">
+          <input id="info-input" type="text" placeholder="Informações" required>
+          <input id="person-img-input" type="text" placeholder="Foto (URL)" required>
+        </div>
+        <button id="add-btn" type="button" class="randomBtn">Salvar</button>
+      </form>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>
