@@ -29,56 +29,74 @@ const reviews = [
     text: 'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
   },
 ];
-// select items
-const img = document.getElementById('person-img');
-const author = document.getElementById('author');
-const job = document.getElementById('job');
-const info = document.getElementById('info');
 
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const randomBtn = document.querySelector('.random-btn');
+// selecionar itens
+const img = document.getElementById('person-img')
+const author = document.getElementById('author')
+const job = document.getElementById('job')
+const info = document.getElementById('info')
 
-// set starting item
-let currentItem = 0;
+// selecionar botoes
+const prevBtn = document.querySelector('.prevBtn')
+const nextBtn = document.querySelector('.nextBtn')
+const randomBtn = document.querySelector('.randomBtn')
 
-// load initial item
-window.addEventListener('DOMContentLoaded', function () {
-  const item = reviews[currentItem];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
-});
+// selecionar inputs
+const authorInput = document.getElementById('author-input')
+const jobInput = document.getElementById('job-input')
+const infoInput = document.getElementById('info-input')
+const personImgInput = document.getElementById('person-img-input')
+const addBtn = document.getElementById('add-btn')
 
-// show person based on item
-function showPerson(person) {
-  const item = reviews[person];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
+// item inicial
+let currentItem = 0
+
+// carregar item inicial
+window.addEventListener('DOMContentLoaded', function() {
+  showPerson()
+})
+
+// mostrar pessoa 
+function showPerson() {
+  const item = reviews[currentItem]
+  img.src = item.img
+  author.textContent = item.name
+  job.textContent = item.job
+  info.textContent = item.text
 }
-// show next person
-nextBtn.addEventListener('click', function () {
-  currentItem++;
-  if (currentItem > reviews.length - 1) {
-    currentItem = 0;
-  }
-  showPerson(currentItem);
-});
-// show prev person
-prevBtn.addEventListener('click', function () {
-  currentItem--;
-  if (currentItem < 0) {
-    currentItem = reviews.length - 1;
-  }
-  showPerson(currentItem);
-});
-// show random person
-randomBtn.addEventListener('click', function () {
-  console.log('hello');
 
-  currentItem = Math.floor(Math.random() * reviews.length);
-  showPerson(currentItem);
-});
+nextBtn.addEventListener('click', function() {
+  currentItem++
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0
+  }
+  showPerson()
+})
+
+prevBtn.addEventListener('click', function() {
+  currentItem--
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1
+  }
+  showPerson()
+})
+
+randomBtn.addEventListener('click', function() {
+  currentItem = Math.floor(Math.random() * reviews.length)
+  console.log(currentItem)
+  showPerson()
+})
+
+function addPerson() {
+  reviews.push({
+    img: personImgInput.value,
+    name: authorInput.value,
+    job: jobInput.value,
+    text: infoInput.value
+  })
+}
+
+addBtn.addEventListener('click', function() {
+  addPerson()
+  console.log(reviews[reviews.length - 1])
+})
