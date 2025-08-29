@@ -1,5 +1,5 @@
-// local reviews data
-const reviews = [
+// local reviews data (dados iniciais)
+const initialReviews = [
   {
     id: 1,
     name: 'susan smith',
@@ -30,6 +30,9 @@ const reviews = [
   },
 ];
 
+// array principal (pode vir do localStorage ou do inicial)
+let reviews = []
+
 // selecionar itens
 const img = document.getElementById('person-img')
 const author = document.getElementById('author')
@@ -51,8 +54,24 @@ const addBtn = document.getElementById('add-btn')
 // item inicial
 let currentItem = 0
 
+// salvar no localStorage
+function saveToLocalStorage() {
+  localStorage.setItem('reviews', JSON.stringify(reviews))
+}
+
+// carregar do localStorage ou usar inicial
+function loadFromLocalStorage() {
+  let savedReviews = JSON.parse(localStorage.getItem('reviews'))
+  if (savedReviews && savedReviews.length > 0) {
+    reviews = savedReviews
+  } else {
+    reviews = [...initialReviews]
+  }
+}
+
 // carregar item inicial
 window.addEventListener('DOMContentLoaded', function() {
+  loadFromLocalStorage()
   showPerson()
 })
 
@@ -83,7 +102,6 @@ prevBtn.addEventListener('click', function() {
 
 randomBtn.addEventListener('click', function() {
   currentItem = Math.floor(Math.random() * reviews.length)
-  console.log(currentItem)
   showPerson()
 })
 
@@ -94,9 +112,11 @@ function addPerson() {
     job: jobInput.value,
     text: infoInput.value
   })
+  saveToLocalStorage()
 }
 
 addBtn.addEventListener('click', function() {
   addPerson()
   console.log(reviews[reviews.length - 1])
+  alert('Review adicionada com sucesso!')
 })
