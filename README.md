@@ -9,7 +9,7 @@ Você pode conferir o projeto no link:
 
 ## 🛠️ **Desenvolvimento do carrossel**  
 <p align="center">
-  <img src="tools.png" width="250" alt="Ferramentas usadas no projeto">
+  <img src="img/tools.png" width="250" alt="Ferramentas usadas no projeto">
 </p>  
 
 ## 💡 **Desenvolvedores**  
