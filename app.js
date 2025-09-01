@@ -85,6 +85,8 @@ function showPerson() {
   info.textContent = item.text
 }
 
+// ativar evento de click para os botoes
+
 nextBtn.addEventListener('click', function() {
   currentItem++
   if (currentItem > reviews.length - 1) {
@@ -106,6 +108,7 @@ randomBtn.addEventListener('click', function() {
   showPerson()
 })
 
+// adicionar review
 function addPerson() {
   reviews.push({
     id: reviews.length,
@@ -117,6 +120,7 @@ function addPerson() {
   saveToLocalStorage()
 }
 
+// ativar eventos de click para os botões
 addBtn.addEventListener('click', function() {
   addPerson()
   console.log(reviews[reviews.length - 1])
